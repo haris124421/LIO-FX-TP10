@@ -1,6 +1,9 @@
 import login_page from "../../../pages/login/login"
+import launchPad_page from "../../../pages/launchPad/launchPad"
 
 describe('Login', ()=> {
+
+    //let authCookie
 
     beforeEach(()=>{
         cy.visit(Cypress.env('BaseURLWeb'))
@@ -11,16 +14,7 @@ describe('Login', ()=> {
         login_page.enterPassword()
         login_page.clickLoginBtn()
         login_page.isLoggedIn()
-
-        cy.visit('http://192.168.122.191:7585/LIOWebUI/Layouts/TimeTablePlannerLayout.html#/Layouts/TimeTablePlannerLayout.html')
-        cy.request({
-            method : 'GET',
-            url: 'http://192.168.122.191:7585/LIOWebUI/Apps/TimeTablePlanner/Scripts/l10n/Data/locales.ini',
-        })
-        cy.request({
-            method : 'GET',
-            url: 'http://192.168.122.191:7585/LIOWebUI/Apps/TimeTablePlanner/Scripts/l10n/Data/data.en.properties',
-        })
-        cy.get('a[href="#/CompanyEditor"]').click()
+        // cy.visit('http://192.168.122.191:7585/LIOWebUI/Layouts/TimeTablePlannerLayout.html#/Timetable?TokenId=2bec3cac-8801-4e13-89e3-4e7d857483f4')
+        // cy.get('.fa.fa-pencil-alt.fa-lg').click()
     })
 })

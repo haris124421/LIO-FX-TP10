@@ -1,13 +1,14 @@
 import company_data from "../../../../fixtures/api_data/companyData.json"
 import commonFucntions from "../../../../helpers/commonFunctions";
+import jwtToken from "../../../../fixtures/api_data/loginToken.json"
 
 describe('Business Area', ()=> {
 
     it('should add business area', () => {
         cy.request({
             method : 'PUT',
-            url: Cypress.env('BaseURLApi')+'/LIOWebAPI/api/ScopeEditor',
-            headers : {"Authorization": "Bearer " + Cypress.env('Token')},
+            url: Cypress.env('BaseURLApi')+'/LIOWebAPI/api/BusinessAreaEditor',
+            headers : {"Authorization": "Bearer " + jwtToken.Token},
             body: {
                 "UserId": Cypress.env('UserId'),
                 "UserName":Cypress.env('UserName'),
@@ -19,12 +20,13 @@ describe('Business Area', ()=> {
                 "isFreezeSchedule":false,
                 "OrderBy":null,
                 "OrderType":null,
-                "ScopeDetail":{
+                "BusinessAreaDetail":{
                    "Id":"",
                    "Name":commonFucntions.generate_random_string(8),
-                   "ScopeConcurrencyValue":"",
+                   "BusinessAreaConcurrencyValue":"",
                    "Abbreviation":commonFucntions.generate_random_string(5),
                    "Annotation":"",
+                   "Number":commonFucntions.getRandomArbitrary(100,1000),
                    "UnitId":company_data.UpdatedUnitId,
                    "Color":"#b02424",
                    "RevisionId":""

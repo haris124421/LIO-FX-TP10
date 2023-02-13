@@ -1,4 +1,5 @@
 import commonFucntions from "../../../../helpers/commonFunctions";
+import jwtToken from "../../../../fixtures/api_data/loginToken.json"
 
 describe('Company', ()=> {
 
@@ -6,7 +7,7 @@ describe('Company', ()=> {
         cy.request({
             method : 'PUT',
             url: Cypress.env('BaseURLApi')+'/LIOWebAPI/api/UnitEditor',
-            headers : {"Authorization": "Bearer " + Cypress.env('Token')},
+            headers : {"Authorization": "Bearer " + jwtToken.Token},
             body: {
                 "UserId": Cypress.env('UserId'),
                 "UserName":Cypress.env('UserName'),

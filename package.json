@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "RunAPITests": "cypress run --browser chrome --spec cypress/e22/API/**/*.js"
   },
   "author": "",
   "license": "ISC",

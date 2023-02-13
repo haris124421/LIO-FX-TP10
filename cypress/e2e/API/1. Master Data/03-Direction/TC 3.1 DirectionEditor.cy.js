@@ -1,6 +1,6 @@
 import company_data from "../../../../fixtures/api_data/companyData.json"
-import businessArea_data from "../../../../fixtures/api_data/businessArea.json"
 import commonFucntions from "../../../../helpers/commonFunctions";
+import jwtToken from "../../../../fixtures/api_data/loginToken.json"
 
 describe('Direction', ()=> {
 
@@ -8,7 +8,7 @@ describe('Direction', ()=> {
         cy.request({
             method : 'PUT',
             url: Cypress.env('BaseURLApi')+'/LIOWebAPI/api/DirectionEditor',
-            headers : {"Authorization": "Bearer " + Cypress.env('Token')},
+            headers : {"Authorization": "Bearer " +jwtToken.Token},
             body: {
                 "UserId": Cypress.env('UserId'),
                 "UserName":Cypress.env('UserName'),

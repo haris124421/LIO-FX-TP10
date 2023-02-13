@@ -1,13 +1,13 @@
 const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
-  pageLoadTimeout: 55000,
-  defaultCommandTimeout:20000,
+  pageLoadTimeout: 95000,
+  defaultCommandTimeout:55000,
   env: {
-    BaseURLWeb: 'http://192.168.122.191:7585/Apps/Common/Views/Login.html',
+    BaseURLWeb: 'http://192.168.122.191:7585/Apps/Common/Views/LaunchPad.html',
     BaseURLApi: 'http://192.168.122.191:7585',
     AppVersion: 'Automation 5.9.0.9',
-    Token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI2MmY5ZTRiNS1hZWJiLTRiYzgtOTk5MC1kNjU4MmQ5M2JlYzUiLCJ1c2VySWQiOiIyMzAyMDIxMjAwNTE5MTAiLCJ1c2VyTmFtZSI6ImhhcmlzIiwiZXhwIjoxNjc1ODQxMjE0LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODMiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjgwODMifQ.9ToOdej_rzo0cKk-gqYxnl6gVfMJpDXOqqxIwXcfe1Y',
+    Token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJiNTk1ZjIzYS05MDM4LTQ2YjMtOTc1YS1iY2NjZjYzZTBhOTYiLCJ1c2VySWQiOiIyMzAyMDIxMjAwNTE5MTAiLCJ1c2VyTmFtZSI6ImhhcmlzIiwiZXhwIjoxNjc2MjE2MTY2LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODMiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjgwODMifQ.r6M0nNovVFkRNs75iwK9DlB9CL7ukKDXUXPX2nFaCZA',
     UserName: 'haris',
     UserId: '230202120051910'
     // stopLoop: 'false'
