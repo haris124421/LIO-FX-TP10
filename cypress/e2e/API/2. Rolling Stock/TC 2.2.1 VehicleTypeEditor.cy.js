@@ -6,7 +6,37 @@ import jwtToken from "../../../fixtures/api_data/loginToken.json"
 
 describe('Vehicle Type Editor', ()=> {
 
-    it('TC 2.1.1 it should add Fuel successfully', () => {
+    let emission_data
+
+
+    before('get fuel emission data', () =>{
+        cy.request({
+            method : 'POST',
+            url: Cypress.env('BaseURLApi')+'/LIOWebAPI/api/VehicleTypeEditor/GetFuelAndEmissionData',
+            headers : {"Authorization": "Bearer " + jwtToken.Token},
+            body: {
+                "UserId": Cypress.env('UserId'),
+                "UserName":Cypress.env('UserName'),
+                "DataFilter":{
+                    
+                },
+                "ResourcePlanFilter":{
+                },
+                "OwnerId":company_data.UpdatedUnitId,
+                "isFreezeSchedule":false,
+                "OrderBy":null,
+                "OrderType":null,
+                "CompanyId":company_data.UpdatedUnitId
+             }
+        }).then( (response) =>{
+            expect(`Response.status = ${response.body.OperationStatus.HttpStatusCode}`).to.eq('Response.status = 200')
+            emission_data = response.body.EntityDDEmissionData[1].Id
+            console.log(emission_data)
+        })
+
+    })
+    it('TC 2.2.1 it should add Vehicle Type successfully', () => {
+        console.log(emission_data)
         cy.request({
             method : 'PUT',
             url: Cypress.env('BaseURLApi')+'/LIOWebAPI/api/VehicleTypeEditor',
@@ -41,7 +71,7 @@ describe('Vehicle Type Editor', ()=> {
                     "BusinessAreaId":businessArea_data.UpdatedBusinessAreaId,
                     "TotalWidth":null,
                     "FuelId":fuel_data.UpdatedFuelId,
-                    "EmissionId":"230214091048018",
+                    "EmissionId":emission_data,
                     "VehicleStandardIds":[
                        
                     ],

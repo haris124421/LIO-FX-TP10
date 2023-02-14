@@ -1,0 +1,74 @@
+{
+  "EntityDDFuelData": [
+    {
+      "FuelUnit": "",
+      "Id": 230214112812202,
+      "ConcurrencyValue": null,
+      "DisplayText": "Automation 5.9.0.9 msrpmsdk",
+      "ParentId": null,
+      "Type": null,
+      "IsDefault": false,
+      "Order": 0
+    },
+    {
+      "FuelUnit": "",
+      "Id": 230214090458461,
+      "ConcurrencyValue": null,
+      "DisplayText": "Automation 5.9.0.9 ucghkucd",
+      "ParentId": null,
+      "Type": null,
+      "IsDefault": false,
+      "Order": 0
+    },
+    {
+      "FuelUnit": null,
+      "Id": 230214085807534,
+      "ConcurrencyValue": null,
+      "DisplayText": "Diesel",
+      "ParentId": null,
+      "Type": null,
+      "IsDefault": false,
+      "Order": 0
+    },
+    {
+      "FuelUnit": null,
+      "Id": 230214085807536,
+      "ConcurrencyValue": null,
+      "DisplayText": "Natural Gas",
+      "ParentId": null,
+      "Type": null,
+      "IsDefault": false,
+      "Order": 0
+    }
+  ],
+  "EntityDDEmissionData": [
+    {
+      "Id": 230214085807558,
+      "ConcurrencyValue": null,
+      "DisplayText": "Euro 5",
+      "ParentId": null,
+      "Type": null,
+      "IsDefault": false,
+      "Order": 0
+    },
+    {
+      "Id": 230214085807556,
+      "ConcurrencyValue": null,
+      "DisplayText": "Euro 6",
+      "ParentId": null,
+      "Type": null,
+      "IsDefault": false,
+      "Order": 0
+    }
+  ],
+  "SessionId": "00000000-0000-0000-0000-000000000000",
+  "RequestId": "00000000-0000-0000-0000-000000000000",
+  "OperationStatus": {
+    "WasSuccessful": true,
+    "ErrorCode": 0,
+    "ErrorMessage": "The operation was successful",
+    "HttpStatusCode": 200
+  },
+  "RowsUpdated": 0,
+  "TooltipData": null
+}

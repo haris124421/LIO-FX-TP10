@@ -11,7 +11,7 @@ class commonFucntions{
     }
 
     static getRandomArbitrary(min, max) {
-        return Math.random() * (max - min) + min;
+        return Math.floor(Math.random() * (max - min) + min)
     }
 
 }
