@@ -1,7 +1,7 @@
-import company_data from "../../../../fixtures/api_data/companyData.json"
-import scope_data from "../../../../fixtures/api_data/scope.json"
-import commonFucntions from "../../../../helpers/commonFunctions";
-import jwtToken from "../../../../fixtures/api_data/loginToken.json"
+import company_data from "../../../fixtures/api_data/companyData.json"
+import scope_data from "../../../fixtures/api_data/scope.json"
+import commonFucntions from "../../../helpers/commonFunctions";
+import jwtToken from "../../../fixtures/api_data/loginToken.json"
 
 describe('Content Type', ()=> {
 

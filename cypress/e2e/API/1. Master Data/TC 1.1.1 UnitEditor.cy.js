@@ -1,5 +1,5 @@
-import commonFucntions from "../../../../helpers/commonFunctions";
-import jwtToken from "../../../../fixtures/api_data/loginToken.json"
+import commonFucntions from "../../../helpers/commonFunctions";
+import jwtToken from "../../../fixtures/api_data/loginToken.json"
 
 describe('Company', ()=> {
 
