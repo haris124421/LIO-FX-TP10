@@ -4,7 +4,7 @@ import jwtToken from "../../../../fixtures/api_data/loginToken.json"
 
 describe('Direction', ()=> {
 
-    it('should add  direction', () => {
+    it('TC 1.3.1 it should add  direction successfully', () => {
         cy.request({
             method : 'PUT',
             url: Cypress.env('BaseURLApi')+'/LIOWebAPI/api/DirectionEditor',

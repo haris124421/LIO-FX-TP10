@@ -6,7 +6,7 @@ import jwtToken from "../../../../fixtures/api_data/loginToken.json"
 
 describe('Block Group', ()=> {
 
-    it('should add Block Group', () => {
+    it('TC 1.6.1 it should add Block Group successfully', () => {
         cy.request({
             method : 'PUT',
             url: Cypress.env('BaseURLApi')+'/LIOWebAPI/api/BlockGroupEditor',

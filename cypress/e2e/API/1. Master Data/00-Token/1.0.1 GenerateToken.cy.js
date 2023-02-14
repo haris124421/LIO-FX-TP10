@@ -1,6 +1,6 @@
 describe('Token', ()=>{
 
-    it('should generate token', () => {
+    it('TC 1.0.1 it should generate auth token successfully', () => {
         cy.request({
             method: 'POST',
             url: Cypress.env('BaseURLApi')+'/ACLWebAPI/api/User/Login',

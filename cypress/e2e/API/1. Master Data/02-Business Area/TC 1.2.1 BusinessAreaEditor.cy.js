@@ -4,7 +4,7 @@ import jwtToken from "../../../../fixtures/api_data/loginToken.json"
 
 describe('Business Area', ()=> {
 
-    it('should add business area', () => {
+    it('TC 1.2.1 it should add business area successfully', () => {
         cy.request({
             method : 'PUT',
             url: Cypress.env('BaseURLApi')+'/LIOWebAPI/api/BusinessAreaEditor',

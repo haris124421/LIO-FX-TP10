@@ -5,7 +5,7 @@ import jwtToken from "../../../../fixtures/api_data/loginToken.json"
 
 describe('Content Type', ()=> {
 
-    it('should add Content Type', () => {
+    it('TC 1.5.1 it should add Content Type successfully', () => {
         cy.request({
             method : 'PUT',
             url: Cypress.env('BaseURLApi')+'/LIOWebAPI/api/TaskTypeEditor',

@@ -79,7 +79,7 @@
   "IsPasswordChangeOnLogin": false,
   "PasswordChangeNotification": true,
   "ChangePasswordDueToPolicy": false,
-  "PasswordRemaingDays": 6,
+  "PasswordRemaingDays": 5,
   "Applications": [
     {
       "RequestId": null,
@@ -182,5 +182,5 @@
       "ScreenList": []
     }
   ],
-  "Token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI2MmJkN2FmMi1jZDkyLTQxNGMtOWYwNy1hOWZhZTZiZDExNGEiLCJ1c2VySWQiOiIyMzAyMDIxMjAwNTE5MTAiLCJ1c2VyTmFtZSI6ImhhcmlzIiwiZXhwIjoxNjc2MzY0MDEyLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODMiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjgwODMifQ.tG1BGtOpOQPHKm87Ee7Lcbqi1VdCadhgOGBOriRl8fA"
+  "Token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI5MjYwNjAxMC1mNTdjLTRmMzAtOTYxYy0wYTQ1ZjY4MTY0YjciLCJ1c2VySWQiOiIyMzAyMDIxMjAwNTE5MTAiLCJ1c2VyTmFtZSI6ImhhcmlzIiwiZXhwIjoxNjc2NDUxNDY4LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODMiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjgwODMifQ.aLCRUrO5h_sylrCs1vEO4oGmIXL5OJ7gUhawWZ07xUE"
 }
