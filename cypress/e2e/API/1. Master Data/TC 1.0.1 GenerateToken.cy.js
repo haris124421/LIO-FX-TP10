@@ -1,3 +1,5 @@
+import login_date from "../../../fixtures/test_data/login.json"
+
 describe('Token', ()=>{
 
     it('TC 1.0.1 it should generate auth token successfully', () => {
@@ -5,8 +7,8 @@ describe('Token', ()=>{
             method: 'POST',
             url: Cypress.env('BaseURLApi')+'/ACLWebAPI/api/User/Login',
             body: {
-              "UserName":"haris",
-              "Password":"123aB",
+              "UserName":login_date.username,
+              "Password":login_date.password,
               "RequestId":"",
               "NotificationRequest":{
                  "UserId":"",

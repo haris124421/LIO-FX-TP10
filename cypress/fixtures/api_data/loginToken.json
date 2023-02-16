@@ -77,9 +77,9 @@
   "WereDatabasesAvailable": false,
   "IsUpdateAvailable": false,
   "IsPasswordChangeOnLogin": false,
-  "PasswordChangeNotification": true,
+  "PasswordChangeNotification": false,
   "ChangePasswordDueToPolicy": false,
-  "PasswordRemaingDays": 3,
+  "PasswordRemaingDays": 0,
   "Applications": [
     {
       "RequestId": null,
@@ -182,5 +182,5 @@
       "ScreenList": []
     }
   ],
-  "Token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIyODQxY2YxMy0zNDQxLTQ0NDMtYWFkMC1lYmQ2MDEzMjI4YWIiLCJ1c2VySWQiOiIyMzAyMDIxMjAwNTE5MTAiLCJ1c2VyTmFtZSI6ImhhcmlzIiwiZXhwIjoxNjc2NTQ5NjQxLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODMiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjgwODMifQ.6oGKbE4Y_noy0j49uyLkOjHPFLlIIaNkm7HNcyeTgW8"
+  "Token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI2OTViMjg5MS1hOTExLTQwMjMtODZiNi00NTgzYWQxYmJlM2YiLCJ1c2VySWQiOiIyMzAyMDIxMjAwNTE5MTAiLCJ1c2VyTmFtZSI6ImhhcmlzIiwiZXhwIjoxNjc2NjM5MDI1LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODMiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjgwODMifQ.RpcCwicRYmIrnNA5nD3q-GgkaYjPM61sJw9BeOTuf6U"
 }
