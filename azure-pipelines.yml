@@ -1,0 +1,24 @@
+trigger:
+  branches:
+    include:
+    - refs/heads/master
+jobs:
+- job: Job_1
+  displayName: TP10 Api Tests
+  pool:
+    name: MyWindows
+  steps:
+  - checkout: self
+    clean: true
+    fetchTags: false
+  - task: Npm@1
+    displayName: Install Packages and dependencies
+    inputs:
+      verbose: false
+  - task: Npm@1
+    displayName: Run API Tests
+    inputs:
+      command: custom
+      verbose: false
+      customCommand: run apitests
+...
