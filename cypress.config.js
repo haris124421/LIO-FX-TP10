@@ -24,7 +24,7 @@ module.exports = defineConfig({
     },
   reporter: 'junit',
   reporterOptions: {
-    mochaFile: 'results/my-test-output.xml'
+    mochaFile: 'results/my-test-output-[hash].xml'
   },
   },
 });
