@@ -25,6 +25,6 @@ jobs:
     displayName: 'Publish Test Results'
     inputs:
       testResultsFormat: 'JUnit'
-      testResultsFiles: 'TEST-*.xml'
-      searchFolder: '$(System.DefaultWorkingDirectory)'
+      testResultsFiles: '**/my-test-output-*.xml'
+      searchFolder: '$(System.DefaultWorkingDirectory)/LIO-FX-TP10/results'
 ...
