@@ -21,4 +21,10 @@ jobs:
       command: custom
       verbose: false
       customCommand: run apitests
+  - task: PublishTestResults@2
+    displayName: 'Publish Test Results'
+    inputs:
+      testResultsFormat: 'JUnit'
+      testResultsFiles: '**/TEST-*.xml'
+      searchFolder: '$(System.DefaultWorkingDirectory)'
 ...
