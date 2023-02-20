@@ -6,7 +6,7 @@ jobs:
 - job: Job_1
   displayName: TP10 Api Tests
   pool:
-    name: MyWindows
+    name: Default
   steps:
   - checkout: self
     clean: true
