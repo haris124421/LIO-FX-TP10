@@ -20,7 +20,7 @@ jobs:
     inputs:
       verbose: false
   - task: Npm@1
-    displayName: Run API Tests
+    displayName: Run API Tests --env USERNAME=$(USERNAME) --env PASSWORD=$(PASSWORD)
     inputs:
       command: custom
       verbose: false
