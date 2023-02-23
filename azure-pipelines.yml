@@ -2,11 +2,15 @@ trigger:
   branches:
     include:
     - refs/heads/master
+
 jobs:
 - job: Job_1
   displayName: TP10 Api Tests
   pool:
     name: Default
+  variables:
+    username: 'haris'
+    password: 'Ab123'
   steps:
   - checkout: self
     clean: true
@@ -15,6 +19,9 @@ jobs:
     displayName: Install Packages and dependencies
     inputs:
       verbose: false
+  - script: |
+      export USERNAME=$username
+      export PASSWORD=$password
   - task: Npm@1
     displayName: Run API Tests
     inputs:
@@ -27,4 +34,3 @@ jobs:
       testResultsFormat: 'JUnit'
       testResultsFiles: '**/my-test-output-*.xml'
       searchFolder: '$(System.DefaultWorkingDirectory)/results'
-...
