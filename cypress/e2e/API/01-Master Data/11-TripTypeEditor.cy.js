@@ -8,7 +8,7 @@ describe('Trip Type', ()=> {
     it('TC 1.10.1 it should add Trip Type successfully', () => {
         cy.request({
             method : 'PUT',
-            url: Cypress.env('BaseURLApi')+'/LIOWebAPI/api/AllowanceEditor',
+            url: Cypress.env('BaseURLApi')+'/LIOWebAPI/api/TripTypeEditor',
             headers : {"Authorization": "Bearer " +jwtToken.Token},
             body: {
                 "UserId": Cypress.env('UserId'),
