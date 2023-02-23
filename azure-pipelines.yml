@@ -20,8 +20,8 @@ jobs:
     inputs:
       verbose: false
   - script: |
-      export USERNAME=$username
-      export PASSWORD=$password
+      set USERNAME=$username
+      set PASSWORD=$password
   - task: Npm@1
     displayName: Run API Tests
     inputs:
