@@ -5,8 +5,8 @@ describe('Token', ()=>{
             method: 'POST',
             url: Cypress.env('BaseURLApi')+'/ACLWebAPI/api/User/Login',
             body: {
-              "UserName":Cypress.env('USERNAME'),
-              "Password":Cypress.env('PASSWORD'),
+              "UserName":Cypress.env('CYPRESS_USERNAME'),
+              "Password":Cypress.env('CYPRESS_PASSWORD'),
               "RequestId":"",
               "NotificationRequest":{
                  "UserId":"",
