@@ -11,9 +11,6 @@ jobs:
     demands:
     - USERNAME
     - PASSWORD
-  # variables:
-  #   username: 'haris'
-  #   password: 'Ab123'
   steps:
   - checkout: self
     clean: true
@@ -22,9 +19,6 @@ jobs:
     displayName: Install Packages and dependencies
     inputs:
       verbose: false
-  # - script: |
-  #     set USERNAME=$username
-  #     set PASSWORD=$password
   - task: Npm@1
     displayName: Run API Tests
     inputs:
