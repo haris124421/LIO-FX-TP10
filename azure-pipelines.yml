@@ -24,6 +24,16 @@ jobs:
   dependsOn: SetEnvironmentVariables
   pool:
     name: Default
+  variables:
+    USERNAME: 'haris'
+    PASSWORD: 'Ab123'
+    BaseURL: 'http://192.168.122.191:7585'
+  steps:
+  - script: |
+      echo "Setting environment variables..."
+      echo "USERNAME=$(USERNAME)"
+      echo "PASSWORD=$(PASSWORD)"
+      echo "BaseURL=$(BaseURL)"
   steps:
   - checkout: self
     clean: true
