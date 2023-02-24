@@ -1,58 +1,57 @@
-variables:
-  USERNAME: 'haris'
-  PASSWORD: 'Ab123'
-  BaseURL: 'http://192.168.122.191:7585'
+trigger:
+  branches:
+    include:
+      - refs/heads/master
 
-jobs:
-- job: SetEnvironmentVariables
-  displayName: Set Environment Variables
-  pool:
-    name: Default
-  steps:
-  - script: |
-      echo "Setting environment variables..."
-      echo "USERNAME=$(USERNAME)"
-      echo "PASSWORD=$(PASSWORD)"
-      echo "BaseURL=$(BaseURL)"
-    displayName: "Set Environment Variables"
-  - job: RunTests
-    displayName: Run Tests
-    dependsOn: SetEnvironmentVariables
+stages:
+- stage: RunTests
+  displayName: Run Tests
+  jobs:
+  - job: SetEnvironmentVariables
+    displayName: Set Environment Variables
     pool:
       name: Default
+    variables:
+      USERNAME: 'haris'
+      PASSWORD: 'Ab123'
+      BaseURL: 'http://192.168.122.191:7585'
     steps:
     - script: |
-        echo "Displaying environment variables..."
+        echo "Setting environment variables..."
         echo "USERNAME=$(USERNAME)"
         echo "PASSWORD=$(PASSWORD)"
         echo "BaseURL=$(BaseURL)"
-      displayName: "Display Environment Variables"
-    - checkout: self
-      clean: true
-      fetchTags: false
-    - script: |
-        echo "Setting environment variables..."
-        set USERNAME=$(USERNAME)
-        set PASSWORD=$(PASSWORD)
-        set BaseURL=$(BaseURL)
-        echo "Displaying environment variables..."
-        echo $USERNAME
-        echo $PASSWORD
-        echo $BaseURL
-      displayName: "Export Environment Variables"
-    - task: Npm@1
-      displayName: Install Packages and dependencies
-      inputs:
-        verbose: false
-    - task: Npm@1
-      displayName: Run e2e Tests
-      inputs:
-        command: custom
-        verbose: false
-        customCommand: run e2e
-    - task: PublishTestResults@2
-      displayName: 'Publish Test Results'
-      inputs:
-        testResultsFormat: 'JUnit'
-        testResultsFiles: '**/my-test-output-*.xml'
-        searchFolder: '$(System.DefaultWorkingDirectory)/results'
+      displayName: "Set Environment Variables"
+    - job: RunTests
+      displayName: Run Tests
+      pool:
+        name: Default
+      steps:
+      - checkout: self
+        clean: true
+        fetchTags: false
+      - script: |
+          set USERNAME=$(USERNAME)
+          set PASSWORD=$(PASSWORD)
+          set BaseURL=$(BaseURL)
+          echo "displaying env variable"
+          echo $USERNAME
+          echo $PASSWORD
+          echo $BaseURL
+        displayName: Export Environment Variables
+      - task: Npm@1
+        displayName: Install Packages and dependencies
+        inputs:
+          verbose: false
+      - task: Npm@1
+        displayName: Run e2e Tests
+        inputs:
+          command: custom
+          verbose: false
+          customCommand: run e2e
+      - task: PublishTestResults@2
+        displayName: 'Publish Test Results'
+        inputs:
+          testResultsFormat: 'JUnit'
+          testResultsFiles: '**/my-test-output-*.xml'
+          searchFolder: '$(System.DefaultWorkingDirectory)/results'
