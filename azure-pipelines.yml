@@ -29,9 +29,9 @@ jobs:
     clean: true
     fetchTags: false
   - script: |
-      export USERNAME=$(USERNAME)
-      export PASSWORD=$(PASSWORD)
-      export BaseURL=$(BaseURL)
+      set USERNAME=$(USERNAME)
+      set PASSWORD=$(PASSWORD)
+      set BaseURL=$(BaseURL)
     displayName: "Export Environment Variables"
   - task: Npm@1
     displayName: Install Packages and dependencies
