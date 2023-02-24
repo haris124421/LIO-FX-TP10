@@ -1,18 +1,18 @@
 import company_data from "../../../fixtures/api_data/companyData.json"
 import businessArea_data from "../../../fixtures/api_data/businessArea.json"
 import commonFucntions from "../../../helpers/commonFunctions";
-import jwtToken from "../../../fixtures/api_data/loginToken.json"
+import login_details from "../../../fixtures/api_data/loginToken.json"
 
 describe('District', ()=> {
 
     it('TC 1.7.1 it should add District successfully', () => {
         cy.request({
             method : 'PUT',
-            url: Cypress.env('BaseURLApi')+'/LIOWebAPI/api/DistrictEditor',
-            headers : {"Authorization": "Bearer " +jwtToken.Token},
+            url: Cypress.env('BaseURL')+'/LIOWebAPI/api/DistrictEditor',
+            headers : {"Authorization": "Bearer " +login_details.Token},
             body: {
-                "UserId": Cypress.env('UserId'),
-                "UserName":Cypress.env('UserName'),
+                "UserId":login_details.CompleteObject.User.Id,
+                "UserName":login_details.CompleteObject.User.UserName,
                 "DataFilter":{
                 },
                 "ResourcePlanFilter":{

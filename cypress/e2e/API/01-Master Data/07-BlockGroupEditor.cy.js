@@ -2,18 +2,18 @@ import company_data from "../../../fixtures/api_data/companyData.json"
 import scope_data from "../../../fixtures/api_data/scope.json"
 import businessArea_data from "../../../fixtures/api_data/businessArea.json"
 import commonFucntions from "../../../helpers/commonFunctions";
-import jwtToken from "../../../fixtures/api_data/loginToken.json"
+import login_details from "../../../fixtures/api_data/loginToken.json"
 
 describe('Block Group', ()=> {
 
     it('TC 1.6.1 it should add Block Group successfully', () => {
         cy.request({
             method : 'PUT',
-            url: Cypress.env('BaseURLApi')+'/LIOWebAPI/api/BlockGroupEditor',
-            headers : {"Authorization": "Bearer " +jwtToken.Token},
+            url: Cypress.env('BaseURL')+'/LIOWebAPI/api/BlockGroupEditor',
+            headers : {"Authorization": "Bearer " +login_details.Token},
             body: {
-                "UserId": Cypress.env('UserId'),
-                "UserName":Cypress.env('UserName'),
+                "UserId":login_details.CompleteObject.User.Id,
+                "UserName":login_details.CompleteObject.User.UserName,
                 "DataFilter":{
                     "ApplyFilterOnScreens":0,
                     "CompanyIds":[

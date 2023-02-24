@@ -1,13 +1,12 @@
-import login_data from "../../../fixtures/test_data/login.json"
 describe('Token', ()=>{
 
     it('TC 1.0.1 it should generate auth token successfully', () => {
         cy.request({
             method: 'POST',
-            url: Cypress.env('BaseURLApi')+'/ACLWebAPI/api/User/Login',
+            url: Cypress.env('BaseURL')+'/ACLWebAPI/api/User/Login',
             body: {
-              "UserName":Cypress.env('USERNAME'),
-              "Password":Cypress.env('PASSWORD'),
+              "UserName":Cypress.env('USERNAME','haris'),
+              "Password":Cypress.env('PASSWORD','Ab123'),
               "RequestId":"",
               "NotificationRequest":{
                  "UserId":"",

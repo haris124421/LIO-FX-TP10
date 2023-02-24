@@ -5,18 +5,10 @@ module.exports = defineConfig({
   defaultCommandTimeout:55000,
   video:false,
   env: {
-    BaseURLWeb: 'http://192.168.122.191:7585/Apps/Common/Views/LaunchPad.html',
-    BaseURLApi: 'http://192.168.122.191:7585',
+    BaseURL: 'http://192.168.122.191:7585',
     AppVersion: 'Automation 5.9.0.11',
-    UserName: 'haris',
-    UserId: '230202120051910',
-    "db": {
-      "host": "192.168.122.191",
-      "user": "sa",
-      "password": "Trapeze1",
-      "database": "db_name"
-    }
-    // stopLoop: 'false'
+    USERNAME: 'haris',
+    PASSWORD: 'Ab123'
   },
   e2e: {
     setupNodeEvents(on, config) {

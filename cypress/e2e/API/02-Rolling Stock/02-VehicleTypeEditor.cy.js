@@ -2,7 +2,7 @@ import company_data from "../../../fixtures/api_data/companyData.json"
 import businessArea_data from "../../../fixtures/api_data/businessArea.json"
 import fuel_data from "../../../fixtures/api_data/fuel.json";
 import commonFucntions from "../../../helpers/commonFunctions";
-import jwtToken from "../../../fixtures/api_data/loginToken.json"
+import login_details from "../../../fixtures/api_data/loginToken.json"
 
 describe('Vehicle Type Editor', ()=> {
 
@@ -12,11 +12,11 @@ describe('Vehicle Type Editor', ()=> {
     before('get fuel emission data', () =>{
         cy.request({
             method : 'POST',
-            url: Cypress.env('BaseURLApi')+'/LIOWebAPI/api/VehicleTypeEditor/GetFuelAndEmissionData',
-            headers : {"Authorization": "Bearer " + jwtToken.Token},
+            url: Cypress.env('BaseURL')+'/LIOWebAPI/api/VehicleTypeEditor/GetFuelAndEmissionData',
+            headers : {"Authorization": "Bearer " + login_details.Token},
             body: {
-                "UserId": Cypress.env('UserId'),
-                "UserName":Cypress.env('UserName'),
+                "UserId":login_details.CompleteObject.User.Id,
+                "UserName":login_details.CompleteObject.User.UserName,
                 "DataFilter":{
                     
                 },
@@ -39,11 +39,11 @@ describe('Vehicle Type Editor', ()=> {
         console.log(emission_data)
         cy.request({
             method : 'PUT',
-            url: Cypress.env('BaseURLApi')+'/LIOWebAPI/api/VehicleTypeEditor',
-            headers : {"Authorization": "Bearer " + jwtToken.Token},
+            url: Cypress.env('BaseURL')+'/LIOWebAPI/api/VehicleTypeEditor',
+            headers : {"Authorization": "Bearer " + login_details.Token},
             body: {
-                "UserId": Cypress.env('UserId'),
-                "UserName":Cypress.env('UserName'),
+                "UserId":login_details.CompleteObject.User.Id,
+                "UserName":login_details.CompleteObject.User.UserName,
                 "DataFilter":{
                 },
                 "ResourcePlanFilter":{

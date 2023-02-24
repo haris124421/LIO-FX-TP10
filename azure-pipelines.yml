@@ -5,12 +5,13 @@ trigger:
 
 jobs:
 - job: Job_1
-  displayName: TP10 Api Tests
+  displayName: TP10 e2e Testing
   pool:
     name: Default
   variables:
     USERNAME: 'haris'
     PASSWORD: 'Ab123'
+    BaseURL: 'http://192.168.122.191:7585'
   steps:
   - checkout: self
     clean: true
@@ -20,12 +21,12 @@ jobs:
     inputs:
       verbose: false
   - task: Npm@1
-    displayName: Run API Tests
+    displayName: Run e2e Tests
     inputs:
       command: custom
       verbose: false
       customCommand: |
-        set USERNAME=$(USERNAME) && set PASSWORD=$(PASSWORD) && npm run apitests
+        set USERNAME=$(USERNAME) && set PASSWORD=$(PASSWORD) && set BaseURL=$(BaseURL) && npm run e2e
   - task: PublishTestResults@2
     displayName: 'Publish Test Results'
     inputs:

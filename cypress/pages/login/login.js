@@ -4,12 +4,12 @@ import launchPad_locators from "../../fixtures/page_locators/launchPad.json"
 
 class login{
 
-    static enterUsername(){
-        cy.get(login_locators.username_field).type(Cypress.env('USERNAME'))
+    static enterUsername(username){
+        cy.get(login_locators.username_field).type(username)
     }
 
-    static enterPassword(){
-        cy.get(login_locators.password_field).type(Cypress.env('PASSWORD'))
+    static enterPassword(password){
+        cy.get(login_locators.password_field).type(password)
     }
 
     static clickLoginBtn(){

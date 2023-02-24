@@ -1,17 +1,17 @@
 import company_data from "../../../fixtures/api_data/companyData.json"
 import commonFucntions from "../../../helpers/commonFunctions";
-import jwtToken from "../../../fixtures/api_data/loginToken.json"
+import login_details from "../../../fixtures/api_data/loginToken.json"
 
 describe('Direction', ()=> {
 
     it('TC 1.3.1 it should add  direction successfully', () => {
         cy.request({
             method : 'PUT',
-            url: Cypress.env('BaseURLApi')+'/LIOWebAPI/api/DirectionEditor',
-            headers : {"Authorization": "Bearer " +jwtToken.Token},
+            url: Cypress.env('BaseURL')+'/LIOWebAPI/api/DirectionEditor',
+            headers : {"Authorization": "Bearer " +login_details.Token},
             body: {
-                "UserId": Cypress.env('UserId'),
-                "UserName":Cypress.env('UserName'),
+                "UserId":login_details.CompleteObject.User.Id,
+                "UserName":login_details.CompleteObject.User.UserName,
                 "DataFilter":{
                 },
                 "ResourcePlanFilter":{
