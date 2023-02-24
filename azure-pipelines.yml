@@ -8,6 +8,11 @@ jobs:
   displayName: Set Environment Variables
   pool:
     name: Default
+  outputs:
+    variables:
+      USERNAME: ${{ variables.USERNAME }}
+      PASSWORD: ${{ variables.PASSWORD }}
+      BaseURL: ${{ variables.BaseURL }}
   variables:
     USERNAME: 'haris'
     PASSWORD: 'Ab123'
@@ -25,9 +30,9 @@ jobs:
   pool:
     name: Default
   variables:
-    USERNAME: 'haris'
-    PASSWORD: 'Ab123'
-    BaseURL: 'http://192.168.122.191:7585'
+    USERNAME: $[dependencies.SetEnvironmentVariables.outputs['SetEnvironmentVariables.variables.USERNAME']]
+    PASSWORD: $[dependencies.SetEnvironmentVariables.outputs['SetEnvironmentVariables.variables.PASSWORD']]
+    BaseURL: $[dependencies.SetEnvironmentVariables.outputs['SetEnvironmentVariables.variables.BaseURL']]
   steps:
   - script: |
       echo "Setting environment variables..."
