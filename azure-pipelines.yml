@@ -36,13 +36,13 @@ jobs:
       echo $USERNAME
       echo $PASSWORD
       echo $BaseURL
-    displayName: "Export Environment Variables"
+    displayName: Export Environment Variables
   - task: Npm@1
     displayName: Install Packages and dependencies
     inputs:
       verbose: false
   - task: Npm@1
-    displayName: "Run e2e Tests"
+    displayName: Run e2e Tests
     inputs:
       command: custom
       verbose: false
