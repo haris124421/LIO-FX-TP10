@@ -32,14 +32,20 @@ jobs:
       set USERNAME=$(USERNAME)
       set PASSWORD=$(PASSWORD)
       set BaseURL=$(BaseURL)
+      echo "displaying env variable"
+      echo $USERNAME
+      echo $PASSWORD
+      echo $BaseURL
     displayName: "Export Environment Variables"
   - task: Npm@1
     displayName: Install Packages and dependencies
     inputs:
       verbose: false
-  - script: |
-      run e2e
     displayName: "Run e2e Tests"
+    inputs:
+      command: custom
+      verbose: false
+      customCommand: run e2e
   - task: PublishTestResults@2
     displayName: 'Publish Test Results'
     inputs:
