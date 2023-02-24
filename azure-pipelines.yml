@@ -38,7 +38,7 @@ jobs:
       command: custom
       verbose: false
       customCommand: |
-        npm run e2e
+        run e2e
   - task: PublishTestResults@2
     displayName: 'Publish Test Results'
     inputs:
