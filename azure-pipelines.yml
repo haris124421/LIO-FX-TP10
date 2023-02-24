@@ -30,6 +30,16 @@ jobs:
     - checkout: self
       clean: true
       fetchTags: false
+    - script: |
+        echo "Setting environment variables..."
+        set USERNAME=$(USERNAME)
+        set PASSWORD=$(PASSWORD)
+        set BaseURL=$(BaseURL)
+        echo "Displaying environment variables..."
+        echo $USERNAME
+        echo $PASSWORD
+        echo $BaseURL
+      displayName: "Export Environment Variables"
     - task: Npm@1
       displayName: Install Packages and dependencies
       inputs:
