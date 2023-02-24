@@ -8,9 +8,6 @@ jobs:
   displayName: TP10 Api Tests
   pool:
     name: Default
-    demands:
-    - USERNAME
-    - PASSWORD
   steps:
   - checkout: self
     clean: true
@@ -20,7 +17,7 @@ jobs:
     inputs:
       verbose: false
   - task: Npm@1
-    displayName: Run API Tests --env USERNAME=$(USERNAME) --env PASSWORD=$(PASSWORD)
+    displayName: Run API Tests
     inputs:
       command: custom
       verbose: false
