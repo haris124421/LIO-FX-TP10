@@ -34,7 +34,6 @@ jobs:
       echo "USERNAME=$(USERNAME)"
       echo "PASSWORD=$(PASSWORD)"
       echo "BaseURL=$(BaseURL)"
-  steps:
   - checkout: self
     clean: true
     fetchTags: false
