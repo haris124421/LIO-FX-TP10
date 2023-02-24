@@ -4,14 +4,26 @@ trigger:
     - refs/heads/master
 
 jobs:
-- job: Job_1
-  displayName: TP10 e2e Testing
+- job: SetEnvironmentVariables
+  displayName: Set Environment Variables
   pool:
     name: Default
   variables:
     USERNAME: 'haris'
     PASSWORD: 'Ab123'
     BaseURL: 'http://192.168.122.191:7585'
+  steps:
+  - script: |
+      echo "Setting environment variables..."
+      echo "USERNAME=$(USERNAME)"
+      echo "PASSWORD=$(PASSWORD)"
+      echo "BaseURL=$(BaseURL)"
+    displayName: "Set Environment Variables"
+- job: RunTests
+  displayName: Run Tests
+  dependsOn: SetEnvironmentVariables
+  pool:
+    name: Default
   steps:
   - checkout: self
     clean: true
@@ -26,7 +38,7 @@ jobs:
       command: custom
       verbose: false
       customCommand: |
-        set USERNAME=$(USERNAME) && set PASSWORD=$(PASSWORD) && set BaseURL=$(BaseURL) && run e2e
+        npm run e2e
   - task: PublishTestResults@2
     displayName: 'Publish Test Results'
     inputs:
