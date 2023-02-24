@@ -8,6 +8,9 @@ jobs:
   displayName: TP10 Api Tests
   pool:
     name: Default
+  variables:
+    USERNAME: 'haris'
+    PASSWORD: 'Ab123'
   steps:
   - checkout: self
     clean: true
@@ -21,7 +24,8 @@ jobs:
     inputs:
       command: custom
       verbose: false
-      customCommand: run apitests
+      customCommand: |
+        set USERNAME=$(USERNAME) && set PASSWORD=$(PASSWORD) && npm run apitests
   - task: PublishTestResults@2
     displayName: 'Publish Test Results'
     inputs:
