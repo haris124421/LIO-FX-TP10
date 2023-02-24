@@ -1,22 +1,13 @@
-trigger:
-  branches:
-    include:
-      - refs/heads/master
+variables:
+  USERNAME: 'haris'
+  PASSWORD: 'Ab123'
+  BaseURL: 'http://192.168.122.191:7585'
 
 jobs:
 - job: SetEnvironmentVariables
   displayName: Set Environment Variables
   pool:
     name: Default
-  outputs:
-    variables:
-      USERNAME: ${{ variables.USERNAME }}
-      PASSWORD: ${{ variables.PASSWORD }}
-      BaseURL: ${{ variables.BaseURL }}
-  variables:
-    USERNAME: 'haris'
-    PASSWORD: 'Ab123'
-    BaseURL: 'http://192.168.122.191:7585'
   steps:
   - script: |
       echo "Setting environment variables..."
@@ -24,46 +15,34 @@ jobs:
       echo "PASSWORD=$(PASSWORD)"
       echo "BaseURL=$(BaseURL)"
     displayName: "Set Environment Variables"
-- job: RunTests
-  displayName: Run Tests
-  dependsOn: SetEnvironmentVariables
-  pool:
-    name: Default
-  variables:
-    USERNAME: $[dependencies.SetEnvironmentVariables.outputs['SetEnvironmentVariables.variables.USERNAME']]
-    PASSWORD: $[dependencies.SetEnvironmentVariables.outputs['SetEnvironmentVariables.variables.PASSWORD']]
-    BaseURL: $[dependencies.SetEnvironmentVariables.outputs['SetEnvironmentVariables.variables.BaseURL']]
-  steps:
-  - script: |
-      echo "Setting environment variables..."
-      echo "USERNAME=$(USERNAME)"
-      echo "PASSWORD=$(PASSWORD)"
-      echo "BaseURL=$(BaseURL)"
-  - checkout: self
-    clean: true
-    fetchTags: false
-  - script: |
-      set USERNAME=$(USERNAME)
-      set PASSWORD=$(PASSWORD)
-      set BaseURL=$(BaseURL)
-      echo "displaying env variable"
-      echo $USERNAME
-      echo $PASSWORD
-      echo $BaseURL
-    displayName: Export Environment Variables
-  - task: Npm@1
-    displayName: Install Packages and dependencies
-    inputs:
-      verbose: false
-  - task: Npm@1
-    displayName: Run e2e Tests
-    inputs:
-      command: custom
-      verbose: false
-      customCommand: run e2e
-  - task: PublishTestResults@2
-    displayName: 'Publish Test Results'
-    inputs:
-      testResultsFormat: 'JUnit'
-      testResultsFiles: '**/my-test-output-*.xml'
-      searchFolder: '$(System.DefaultWorkingDirectory)/results'
+  - job: RunTests
+    displayName: Run Tests
+    dependsOn: SetEnvironmentVariables
+    pool:
+      name: Default
+    steps:
+    - script: |
+        echo "Displaying environment variables..."
+        echo "USERNAME=$(USERNAME)"
+        echo "PASSWORD=$(PASSWORD)"
+        echo "BaseURL=$(BaseURL)"
+      displayName: "Display Environment Variables"
+    - checkout: self
+      clean: true
+      fetchTags: false
+    - task: Npm@1
+      displayName: Install Packages and dependencies
+      inputs:
+        verbose: false
+    - task: Npm@1
+      displayName: Run e2e Tests
+      inputs:
+        command: custom
+        verbose: false
+        customCommand: run e2e
+    - task: PublishTestResults@2
+      displayName: 'Publish Test Results'
+      inputs:
+        testResultsFormat: 'JUnit'
+        testResultsFiles: '**/my-test-output-*.xml'
+        searchFolder: '$(System.DefaultWorkingDirectory)/results'
