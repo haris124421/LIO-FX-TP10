@@ -1,57 +1,36 @@
 trigger:
   branches:
     include:
-      - refs/heads/master
+    - refs/heads/master
 
-stages:
-- stage: RunTests
-  displayName: Run Tests
-  jobs:
-  - job: SetEnvironmentVariables
-    displayName: Set Environment Variables
-    pool:
-      name: Default
-    variables:
-      USERNAME: 'haris'
-      PASSWORD: 'Ab123'
-      BaseURL: 'http://192.168.122.191:7585'
-    steps:
-    - script: |
-        echo "Setting environment variables..."
-        echo "USERNAME=$(USERNAME)"
-        echo "PASSWORD=$(PASSWORD)"
-        echo "BaseURL=$(BaseURL)"
-      displayName: "Set Environment Variables"
-    - job: RunTests
-      displayName: Run Tests
-      pool:
-        name: Default
-      steps:
-      - checkout: self
-        clean: true
-        fetchTags: false
-      - script: |
-          set USERNAME=$(USERNAME)
-          set PASSWORD=$(PASSWORD)
-          set BaseURL=$(BaseURL)
-          echo "displaying env variable"
-          echo $USERNAME
-          echo $PASSWORD
-          echo $BaseURL
-        displayName: Export Environment Variables
-      - task: Npm@1
-        displayName: Install Packages and dependencies
-        inputs:
-          verbose: false
-      - task: Npm@1
-        displayName: Run e2e Tests
-        inputs:
-          command: custom
-          verbose: false
-          customCommand: run e2e
-      - task: PublishTestResults@2
-        displayName: 'Publish Test Results'
-        inputs:
-          testResultsFormat: 'JUnit'
-          testResultsFiles: '**/my-test-output-*.xml'
-          searchFolder: '$(System.DefaultWorkingDirectory)/results'
+jobs:
+- job: Job_1
+  displayName: TP10 Api Tests
+  pool:
+    name: Default
+  # variables:
+  #   username: 'haris'
+  #   password: 'Ab123'
+  steps:
+  - checkout: self
+    clean: true
+    fetchTags: false
+  - task: Npm@1
+    displayName: Install Packages and dependencies
+    inputs:
+      verbose: false
+  # - script: |
+  #     set USERNAME=$username
+  #     set PASSWORD=$password
+  - task: Npm@1
+    displayName: Run API Tests
+    inputs:
+      command: custom
+      verbose: false
+      customCommand: run e2e
+  - task: PublishTestResults@2
+    displayName: 'Publish Test Results'
+    inputs:
+      testResultsFormat: 'JUnit'
+      testResultsFiles: '**/my-test-output-*.xml'
+      searchFolder: '$(System.DefaultWorkingDirectory)/results'
