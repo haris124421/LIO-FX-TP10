@@ -4,8 +4,8 @@ trigger:
     - refs/heads/master
 
 jobs:
-- job: TP10_Automation
-  displayName: TP10 Sanity Test
+- job: SetEnvironmentVariables
+  displayName: Set Environment Variables
   pool:
     name: Default
   # variables:
@@ -23,7 +23,7 @@ jobs:
   #     set USERNAME=$username
   #     set PASSWORD=$password
   - task: Npm@1
-    displayName: Run e2e Sanity Tests
+    displayName: Run e2e Tests
     inputs:
       command: custom
       verbose: false
