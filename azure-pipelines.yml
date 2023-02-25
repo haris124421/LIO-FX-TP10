@@ -1,62 +1,29 @@
 trigger:
   branches:
     include:
-      - refs/heads/master
+    - refs/heads/master
 
 jobs:
-- job: SetEnvironmentVariables
-  displayName: Set Environment Variables
+- job: TP10_Automation
+  displayName: TP10 Sanity Test
   pool:
     name: Default
-  outputs:
-    variables:
-      USERNAME: ${{ variables.USERNAME }}
-      PASSWORD: ${{ variables.PASSWORD }}
-      BaseURL: ${{ variables.BaseURL }}
-  variables:
-    USERNAME: 'haris'
-    PASSWORD: 'Ab123'
-    BaseURL: 'http://192.168.122.191:7585'
+  # variables:
+  #   username: 'haris'
+  #   password: 'Ab123'
   steps:
-  - script: |
-      echo "Setting environment variables..."
-      echo "USERNAME=$(USERNAME)"
-      echo "PASSWORD=$(PASSWORD)"
-      echo "BaseURL=$(BaseURL)"
-    displayName: "Set Environment Variables"
-- job: RunTests
-  displayName: Run Tests
-  dependsOn: SetEnvironmentVariables
-  pool:
-    name: Default
-  variables:
-    USERNAME: $[dependencies.SetEnvironmentVariables.outputs['SetEnvironmentVariables.variables.USERNAME']]
-    PASSWORD: $[dependencies.SetEnvironmentVariables.outputs['SetEnvironmentVariables.variables.PASSWORD']]
-    BaseURL: $[dependencies.SetEnvironmentVariables.outputs['SetEnvironmentVariables.variables.BaseURL']]
-  steps:
-  - script: |
-      echo "Setting environment variables..."
-      echo "USERNAME=$(USERNAME)"
-      echo "PASSWORD=$(PASSWORD)"
-      echo "BaseURL=$(BaseURL)"
   - checkout: self
     clean: true
     fetchTags: false
-  - script: |
-      set USERNAME=$(USERNAME)
-      set PASSWORD=$(PASSWORD)
-      set BaseURL=$(BaseURL)
-      echo "displaying env variable"
-      echo $USERNAME
-      echo $PASSWORD
-      echo $BaseURL
-    displayName: Export Environment Variables
   - task: Npm@1
     displayName: Install Packages and dependencies
     inputs:
       verbose: false
+  # - script: |
+  #     set USERNAME=$username
+  #     set PASSWORD=$password
   - task: Npm@1
-    displayName: Run e2e Tests
+    displayName: Run e2e Sanity Tests
     inputs:
       command: custom
       verbose: false
