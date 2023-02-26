@@ -24,6 +24,10 @@ jobs:
         $env:PASSWORD = "$(PASSWORD)"
         $env:BaseURL = "$(BaseURL)"
   - task: Npm@1
+    displayName: Install Packages and dependencies
+    inputs:
+      verbose: false
+  - task: Npm@1
     displayName: Run e2e Sanity Tests
     inputs:
       command: custom
