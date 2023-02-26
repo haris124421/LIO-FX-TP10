@@ -3,9 +3,9 @@ trigger:
     include:
     - refs/heads/master
 variables:
-  BASEURL: 'http://192.168.122.191:7585'
-  USERNAME: 'haris'
-  PASSWORD: 'Ab123'
+  CYPRESS_BASEURL: 'http://192.168.122.191:7585'
+  CYPRESS_USERNAME: 'haris'
+  CYPRESS_PASSWORD: 'Ab123'
 jobs:
 - job: TP10_Automation
   displayName: TP10 Automated Sanity Testing
@@ -20,18 +20,18 @@ jobs:
     inputs:
       targetType: 'inline'
       script: |
-        $env:USERNAME = "$(USERNAME)"
-        $env:PASSWORD = "$(PASSWORD)"
-        $env:BASEURL = "$(BASEURL)"
+        $env:CYPRESS_BASEURL = "$(CYPRESS_BASEURL)"
+        $env:CYPRESS_USERNAME = "$(CYPRESS_USERNAME)"
+        $env:CYPRESS_PASSWORD = "$(CYPRESS_PASSWORD)"
   - task: PowerShell@2
     displayName: Print Environment Variables
     inputs:
       targetType: 'inline'
       script: |
         Get-ChildItem Env:
-        $env:USERNAME = "$(USERNAME)"
-        $env:PASSWORD = "$(PASSWORD)"
-        $env:BASEURL = "$(BASEURL)"
+        $env:CYPRESS_USERNAME = "$(CYPRESS_USERNAME)"
+        $env:CYPRESS_PASSWORD = "$(CYPRESS_PASSWORD)"
+        $env:CYPRESS_BASEURL = "$(CYPRESS_BASEURL)"
   - task: Npm@1
     displayName: Install Packages and dependencies
     inputs:
