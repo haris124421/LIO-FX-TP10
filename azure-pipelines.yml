@@ -1,27 +1,28 @@
-trigger:
+rigger:
   branches:
     include:
     - refs/heads/master
-
+variables:
+  BaseURL: 'http://192.168.122.191:7585'
+  USERNAME: 'haris'
+  PASSWORD: 'Ab123'
 jobs:
 - job: TP10_Automation
   displayName: TP10 Automated Sanity Testing
   pool:
     name: Default
-  # variables:
-  #   username: 'haris'
-  #   password: 'Ab123'
   steps:
   - checkout: self
     clean: true
     fetchTags: false
-  - task: Npm@1
-    displayName: Install Packages and dependencies
+  - task: PowerShell@2
+    displayName: Set Environment Variables
     inputs:
-      verbose: false
-  # - script: |
-  #     set USERNAME=$username
-  #     set PASSWORD=$password
+      targetType: 'inline'
+      script: |
+        $env:USERNAME = "$(USERNAME)"
+        $env:PASSWORD = "$(PASSWORD)"
+        $env:BaseURL = "$(BaseURL)"
   - task: Npm@1
     displayName: Run e2e Sanity Tests
     inputs:

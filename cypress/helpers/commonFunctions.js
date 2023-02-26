@@ -1,7 +1,7 @@
 class commonFucntions{
 
     static generate_random_string(string_length) {
-        let random_string = Cypress.env('AppVersion')+' ';
+        let random_string = 'Automation 5.9.0.11'+' ';
         let random_ascii;
         for(let i = 0; i < string_length; i++) {
             random_ascii = Math.floor((Math.random() * 25) + 97);
