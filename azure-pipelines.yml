@@ -23,6 +23,15 @@ jobs:
         $env:USERNAME = "$(USERNAME)"
         $env:PASSWORD = "$(PASSWORD)"
         $env:BaseURL = "$(BaseURL)"
+  - task: PowerShell@2
+    displayName: Print Environment Variables
+    inputs:
+      targetType: 'inline'
+      script: |
+        Get-ChildItem Env:
+        $env:USERNAME = "$(USERNAME)"
+        $env:PASSWORD = "$(PASSWORD)"
+        $env:BaseURL = "$(BaseURL)"
   - task: Npm@1
     displayName: Install Packages and dependencies
     inputs:
