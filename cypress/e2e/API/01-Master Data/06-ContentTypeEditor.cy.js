@@ -8,7 +8,7 @@ describe('Content Type', ()=> {
     it('TC 1.5.1 it should add Content Type successfully', () => {
         cy.request({
             method : 'PUT',
-            url: Cypress.env('BaseURL')+'/LIOWebAPI/api/TaskTypeEditor',
+            url: Cypress.env('BASEURL')+'/LIOWebAPI/api/TaskTypeEditor',
             headers : {"Authorization": "Bearer " +login_details.Token},
             body: {
                 "UserId":login_details.CompleteObject.User.Id,

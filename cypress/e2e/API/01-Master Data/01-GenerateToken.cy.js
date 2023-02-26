@@ -3,7 +3,7 @@ describe('Token', ()=>{
     it('TC 1.0.1 it should generate auth token successfully', () => {
         cy.request({
             method: 'POST',
-            url: Cypress.env('BaseURL')+'/ACLWebAPI/api/User/Login',
+            url: Cypress.env('BASEURL')+'/ACLWebAPI/api/User/Login',
             body: {
               "UserName":Cypress.env('USERNAME','haris'),
               "Password":Cypress.env('PASSWORD','Ab123'),

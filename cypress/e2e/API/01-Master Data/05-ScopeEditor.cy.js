@@ -7,7 +7,7 @@ describe('Scope', ()=> {
     it('TC 1.4.1 it should add scope successfully', () => {
         cy.request({
             method : 'PUT',
-            url: Cypress.env('BaseURL')+'/LIOWebAPI/api/ScopeEditor',
+            url: Cypress.env('BASEURL')+'/LIOWebAPI/api/ScopeEditor',
             headers : {"Authorization": "Bearer " +login_details.Token},
             body: {
                 "UserId":login_details.CompleteObject.User.Id,

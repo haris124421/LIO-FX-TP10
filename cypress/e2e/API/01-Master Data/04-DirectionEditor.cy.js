@@ -7,7 +7,7 @@ describe('Direction', ()=> {
     it('TC 1.3.1 it should add  direction successfully', () => {
         cy.request({
             method : 'PUT',
-            url: Cypress.env('BaseURL')+'/LIOWebAPI/api/DirectionEditor',
+            url: Cypress.env('BASEURL')+'/LIOWebAPI/api/DirectionEditor',
             headers : {"Authorization": "Bearer " +login_details.Token},
             body: {
                 "UserId":login_details.CompleteObject.User.Id,

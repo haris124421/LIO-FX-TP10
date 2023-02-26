@@ -3,7 +3,7 @@ import login_page from "../../../pages/login/login"
 describe('Login', ()=> {
 
     before(()=>{
-        cy.visit(Cypress.env('BaseURL')+'/Apps/Common/Views/LaunchPad.html')
+        cy.visit(Cypress.env('BASEURL')+'/Apps/Common/Views/LaunchPad.html')
     })
 
     it('should login successfully with valid credentials',()=>{

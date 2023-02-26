@@ -7,7 +7,7 @@ describe('Fuel Editor', ()=> {
     it('TC 2.1.1 it should add Fuel successfully', () => {
         cy.request({
             method : 'PUT',
-            url: Cypress.env('BaseURL')+'/LIOWebAPI/api/FuelEditor',
+            url: Cypress.env('BASEURL')+'/LIOWebAPI/api/FuelEditor',
             headers : {"Authorization": "Bearer " + login_details.Token},
             body: {
                 "UserId":login_details.CompleteObject.User.Id,

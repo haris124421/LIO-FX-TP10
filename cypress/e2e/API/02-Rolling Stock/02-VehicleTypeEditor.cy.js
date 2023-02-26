@@ -12,7 +12,7 @@ describe('Vehicle Type Editor', ()=> {
     before('get fuel emission data', () =>{
         cy.request({
             method : 'POST',
-            url: Cypress.env('BaseURL')+'/LIOWebAPI/api/VehicleTypeEditor/GetFuelAndEmissionData',
+            url: Cypress.env('BASEURL')+'/LIOWebAPI/api/VehicleTypeEditor/GetFuelAndEmissionData',
             headers : {"Authorization": "Bearer " + login_details.Token},
             body: {
                 "UserId":login_details.CompleteObject.User.Id,
@@ -39,7 +39,7 @@ describe('Vehicle Type Editor', ()=> {
         console.log(emission_data)
         cy.request({
             method : 'PUT',
-            url: Cypress.env('BaseURL')+'/LIOWebAPI/api/VehicleTypeEditor',
+            url: Cypress.env('BASEURL')+'/LIOWebAPI/api/VehicleTypeEditor',
             headers : {"Authorization": "Bearer " + login_details.Token},
             body: {
                 "UserId":login_details.CompleteObject.User.Id,

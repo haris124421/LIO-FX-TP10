@@ -3,7 +3,7 @@ trigger:
     include:
     - refs/heads/master
 variables:
-  BaseURL: 'http://192.168.122.191:7585'
+  BASEURL: 'http://192.168.122.191:7585'
   USERNAME: 'haris'
   PASSWORD: 'Ab123'
 jobs:
@@ -22,7 +22,7 @@ jobs:
       script: |
         $env:USERNAME = "$(USERNAME)"
         $env:PASSWORD = "$(PASSWORD)"
-        $env:BaseURL = "$(BaseURL)"
+        $env:BASEURL = "$(BASEURL)"
   - task: PowerShell@2
     displayName: Print Environment Variables
     inputs:
@@ -31,7 +31,7 @@ jobs:
         Get-ChildItem Env:
         $env:USERNAME = "$(USERNAME)"
         $env:PASSWORD = "$(PASSWORD)"
-        $env:BaseURL = "$(BaseURL)"
+        $env:BASEURL = "$(BASEURL)"
   - task: Npm@1
     displayName: Install Packages and dependencies
     inputs:

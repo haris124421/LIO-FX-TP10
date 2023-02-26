@@ -6,7 +6,7 @@ describe('Company', ()=> {
     it('TC 1.1.1 it should add company successfully', () => {
         cy.request({
             method : 'PUT',
-            url: Cypress.env('BaseURL')+'/LIOWebAPI/api/UnitEditor',
+            url: Cypress.env('BASEURL')+'/LIOWebAPI/api/UnitEditor',
             headers : {"Authorization": "Bearer " + login_details.Token},
             body: {
                 "UserId":login_details.CompleteObject.User.Id,
