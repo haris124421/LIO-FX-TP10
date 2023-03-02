@@ -2,3 +2,4 @@ node_modules
 cypress/screenshots
 cypress/video
 results
+cypress/fixtures/api_data

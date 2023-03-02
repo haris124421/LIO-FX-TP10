@@ -9,6 +9,7 @@ variables:
   CYPRESS_BASEURL: 'http://192.168.122.191:7585'
   CYPRESS_USERNAME: 'haris'
   CYPRESS_PASSWORD: 'Ab123'
+  CYPRESS_BUILD: '5.9.0.12'
 
 jobs:
 - job: TP10_Automation
@@ -32,6 +33,7 @@ jobs:
         $env:CYPRESS_BASEURL = "$(CYPRESS_BASEURL)"
         $env:CYPRESS_USERNAME = "$(CYPRESS_USERNAME)"
         $env:CYPRESS_PASSWORD = "$(CYPRESS_PASSWORD)"
+        $env:CYPRESS_BUILD = "$(CYPRESS_BUILD)"
 
 #This will output only the environment variables that start with CYPRESS_, which should include the ones that you set in the previous task        
   - task: PowerShell@2

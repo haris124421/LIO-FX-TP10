@@ -5,8 +5,8 @@ module.exports = defineConfig({
   defaultCommandTimeout:55000,
   video:false,
   // env: {
-  //   BaseURL: 'http://192.168.122.191:7585',
-  //   AppVersion: 'Automation 5.9.0.11',
+  //   BASEURL: 'http://192.168.122.191:7585',
+  //   BUILD: '5.9.0.12',
   //   USERNAME: 'haris',
   //   PASSWORD: 'Ab123'
   // },
