@@ -1,8 +1,12 @@
-import login_locators from "../../fixtures/page_locators/login.json"
-import launchPad_locators from "../../fixtures/page_locators/launchPad.json"
+import login_locators from "../fixtures/page_locators/login.json"
+import launchPad_locators from "../fixtures/page_locators/launchPad.json"
 
 
 class login{
+
+    static openLoginPage(){
+        return cy.visit(Cypress.env('BASEURL')+'/Apps/Common/Views/Login.html')
+    }
 
     static enterUsername(username){
         cy.get(login_locators.username_field).type(username)

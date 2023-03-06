@@ -1,0 +1,4 @@
+{
+    "addNewButton":".editor-addnew-point > .btn > .fa",
+    "select_editor_option":".editor-addnew-point > .dropdown-menu > li"
+}

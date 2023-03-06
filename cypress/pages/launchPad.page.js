@@ -1,4 +1,4 @@
-import launchPad_locators from "../../fixtures/page_locators/launchPad.json"
+import launchPad_locators from "../fixtures/page_locators/launchPad.json"
 
 class launchPad{
     static clickTimetablePlanner(){
