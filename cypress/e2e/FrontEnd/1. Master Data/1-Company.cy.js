@@ -5,7 +5,7 @@ import company_page from "../../../pages/company.page"
 describe('Company', ()=> {
 
     before('It should login and open timetable planner',()=>{
-        
+        login_page.openLoginPage()
         login_page.enterUsername(Cypress.env('USERNAME'))
         login_page.enterPassword(Cypress.env('PASSWORD'))
         login_page.clickLoginBtn()
