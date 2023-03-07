@@ -11,7 +11,7 @@ describe('Company', ()=> {
         login_page.clickLoginBtn()
         login_page.isLoggedIn()
         cy.get('#TimeTable_Planner > .content').click()
-        cy.wait(10000)
+        cy.wait(60000)
     })
 
     it('should open company page and add a new compnay',()=>{

@@ -3,12 +3,13 @@ FROM cypress/base:12
 # Set the working directory to /app
 WORKDIR /app
 
+ENV CYPRESS_BASEURL=$CYPRESS_BASEURL
+ENV CYPRESS_USERNAME=$CYPRESS_USERNAME
+ENV CYPRESS_PASSWORD=$CYPRESS_PASSWORD
+ENV CYPRESS_BUILD=$CYPRESS_BUILD
 
-
-# Copy the archive to the container and extract it in /app directory
-COPY LIO-FX-TP10.zip .
-RUN apt-get update && apt-get install -y unzip
-RUN unzip LIO-FX-TP10.zip -d /app && rm LIO-FX-TP10.zip
+# Copy source code to /app root
+COPY . .
 
 # Install dependencies and run the tests
-RUN npm install && npm run e2e
+RUN npm install
