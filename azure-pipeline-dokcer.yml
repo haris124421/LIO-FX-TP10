@@ -42,5 +42,5 @@ stages:
     steps:
     - script: |
         npm run e2e
-      workingDirectory: '$(System.DefaultWorkingDirectory)/app'
+      workingDirectory: '/app'
       displayName: 'Run Cypress Tests'
