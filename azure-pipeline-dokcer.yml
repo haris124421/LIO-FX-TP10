@@ -42,5 +42,4 @@ stages:
     steps:
     - script: |
         npm run e2e
-      workingDirectory: '/app'
       displayName: 'Run Cypress Tests'
