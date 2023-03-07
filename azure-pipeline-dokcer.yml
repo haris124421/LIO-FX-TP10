@@ -28,7 +28,7 @@ stages:
       inputs:
         command: 'build'
         dockerfile: '$(dockerfile)'
-        context: '.'
+        context: '$(Build.Repository.Name)'
         tags: '$(imageName):latest'
 
 - stage: Test
