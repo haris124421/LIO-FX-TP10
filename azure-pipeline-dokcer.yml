@@ -9,8 +9,6 @@ variables:
   gitRepo: 'https://github.com/haris124421/LIO-FX-TP10.git'
   branchName: 'docker'
   dockerRegistryEndpoint: 'my-docker-registry'
-
-env:
   CYPRESS_BASEURL: 'http://192.168.122.191:7585'
   CYPRESS_USERNAME: 'haris'
   CYPRESS_PASSWORD: 'Test1'
